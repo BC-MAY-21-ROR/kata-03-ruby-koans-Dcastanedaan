@@ -15,6 +15,17 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  
+  raise TriangleError, "Number greater than zero is required" if a <= 0 || b <= 0 || c <= 0
+  raise TriangleError, "Measurement error" if ( a + b + c - ( 2 *  [a,b,c].max ) <= 0  )
+
+  if a == b && c == b
+    :equilateral
+  elsif a != b && a !=c && b != c
+    :scalene
+  else
+    :isosceles
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
